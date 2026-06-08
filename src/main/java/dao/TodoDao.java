@@ -13,6 +13,7 @@ import utils.DbUtil;
 
 public class TodoDao {
 
+	//manamanachan
 	// 全件取得
 	public ArrayList<Todo> findAll() throws SQLException {
 		String sql = "SELECT * FROM todos ORDER BY todo_id";
