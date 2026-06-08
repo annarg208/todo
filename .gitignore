@@ -1,0 +1,19 @@
+# Eclipse
+設定ファイル
+.classpath
+.project
+.settings/
+# 
+ビルド成果物
+build/
+target/
+*.class
+*.war
+*.jar
+# 
+ログ
+*.log
+# OS
+固有
+.DS_Store
+Thumbs.db

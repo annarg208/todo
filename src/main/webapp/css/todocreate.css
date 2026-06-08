@@ -1,0 +1,308 @@
+@charset "UTF-8";
+       :root {
+           /* 淡い水色ベースのカラーパレット */
+           --bg-gradient-start: #E0F2FE; /* Sky 100 */
+           --bg-gradient-end: #F0FDFA;   /* Teal 50 */
+           --primary: #0EA5E9;           /* Sky 500 */
+           --primary-hover: #0284C7;     /* Sky 600 */
+           --primary-light: #E0F2FE;     /* Sky 100 */
+           --accent: #06B6D4;            /* Cyan 500 */
+           --text-main: #1E293B;         /* Slate 800 */
+           --text-muted: #64748B;        /* Slate 500 */
+           --white: #FFFFFF;
+           
+           /* 共通スタイル */
+           --shadow-sm: 0 4px 6px -1px rgba(14, 165, 233, 0.05), 0 2px 4px -1px rgba(14, 165, 233, 0.03);
+           --shadow-md: 0 10px 15px -3px rgba(14, 165, 233, 0.07), 0 4px 6px -2px rgba(14, 165, 233, 0.04);
+           --shadow-lg: 0 20px 25px -5px rgba(14, 165, 233, 0.1), 0 10px 10px -5px rgba(14, 165, 233, 0.04);
+           --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+       }
+       * {
+           margin: 0;
+           padding: 0;
+           box-sizing: border-box;
+       }
+       body {
+           font-family: 'Outfit', 'Noto Sans JP', sans-serif;
+           background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+           color: var(--text-main);
+           min-height: 100vh;
+           display: flex;
+           justify-content: center;
+           align-items: center;
+           padding: 20px;
+       }
+       /* アプリケーションコンテナ */
+       .app-container {
+           width: 100%;
+           max-width: 600px; /* 登録画面用に少しスリムに */
+           background: rgba(255, 255, 255, 0.8);
+           backdrop-filter: blur(20px);
+           -webkit-backdrop-filter: blur(20px);
+           border: 1px solid rgba(255, 255, 255, 0.5);
+           border-radius: 24px;
+           box-shadow: var(--shadow-lg);
+           padding: 40px;
+           position: relative;
+           overflow: hidden;
+       }
+       /* 装飾的な背景の泡 */
+       .decor-bubble {
+           position: absolute;
+           border-radius: 50%;
+           background: linear-gradient(135deg, rgba(14, 165, 233, 0.15) 0%, rgba(6, 182, 212, 0.05) 100%);
+           filter: blur(40px);
+           z-index: 0;
+       }
+       .bubble-1 {
+           width: 200px;
+           height: 200px;
+           top: -80px;
+           right: -80px;
+       }
+       .bubble-2 {
+           width: 250px;
+           height: 250px;
+           bottom: -120px;
+           left: -120px;
+       }
+       /* コンテンツエリア */
+       .app-content {
+           position: relative;
+           z-index: 10;
+       }
+       /* ヘッダー */
+       header {
+           margin-bottom: 32px;
+           text-align: center;
+       }
+       .logo-area {
+           display: inline-flex;
+           align-items: center;
+           gap: 12px;
+           margin-bottom: 8px;
+       }
+       .logo-icon {
+           width: 40px;
+           height: 40px;
+           background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+           border-radius: 12px;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           color: var(--white);
+           box-shadow: 0 8px 16px rgba(14, 165, 233, 0.3);
+       }
+       .logo-icon svg {
+           width: 22px;
+           height: 22px;
+           fill: none;
+           stroke: currentColor;
+           stroke-width: 2.5;
+       }
+       header h1 {
+           font-size: 28px;
+           font-weight: 700;
+           letter-spacing: 0.5px;
+           background: linear-gradient(135deg, var(--primary-hover) 0%, var(--accent) 100%);
+           -webkit-background-clip: text;
+           -webkit-text-fill-color: transparent;
+       }
+       header p {
+           font-size: 14px;
+           color: var(--text-muted);
+           margin-top: 4px;
+       }
+       /* ボタンデザイン */
+       .btn {
+           display: inline-flex;
+           align-items: center;
+           justify-content: center;
+           gap: 8px;
+           padding: 12px 20px;
+           border: none;
+           border-radius: 12px;
+           font-family: inherit;
+           font-size: 14px;
+           font-weight: 500;
+           cursor: pointer;
+           transition: var(--transition);
+       }
+       .btn-primary {
+           background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+           color: var(--white);
+           box-shadow: 0 4px 12px rgba(14, 165, 233, 0.2);
+       }
+       .btn-primary:hover {
+           transform: translateY(-2px);
+           box-shadow: 0 6px 16px rgba(14, 165, 233, 0.3);
+       }
+       .btn-primary:active {
+           transform: translateY(0);
+       }
+       .btn-secondary {
+           background: rgba(255, 255, 255, 0.8);
+           border: 1px solid rgba(14, 165, 233, 0.2);
+           color: var(--text-muted);
+       }
+       .btn-secondary:hover {
+           background: var(--primary-light);
+           color: var(--primary-hover);
+           border-color: var(--primary);
+       }
+       /* 登録画面フォーム */
+       .form-card {
+           background: rgba(255, 255, 255, 0.6);
+           border: 1px solid rgba(255, 255, 255, 0.8);
+           border-radius: 16px;
+           padding: 30px;
+           box-shadow: var(--shadow-sm);
+       }
+       .form-group {
+           margin-bottom: 20px;
+       }
+       .form-group:last-child {
+           margin-bottom: 0;
+       }
+       .form-label {
+           display: block;
+           font-size: 13px;
+           font-weight: 700;
+           color: var(--text-main);
+           margin-bottom: 8px;
+           text-transform: uppercase;
+           letter-spacing: 0.5px;
+       }
+       .form-label span {
+           color: #EF4444;
+           margin-left: 4px;
+       }
+       .form-control {
+           width: 100%;
+           padding: 12px 16px;
+           border: 1px solid rgba(14, 165, 233, 0.2);
+           border-radius: 12px;
+           background: var(--white);
+           font-family: inherit;
+           font-size: 14px;
+           color: var(--text-main);
+           outline: none;
+           transition: var(--transition);
+       }
+       .form-control:focus {
+           border-color: var(--primary);
+           box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.15);
+       }
+       .select-group {
+           position: relative;
+           min-width: 100%;
+       }
+       .select-input {
+           width: 100%;
+           padding: 12px 36px 12px 16px;
+           border: 1px solid rgba(14, 165, 233, 0.2);
+           border-radius: 12px;
+           background: var(--white);
+           font-family: inherit;
+           font-size: 14px;
+           color: var(--text-main);
+           outline: none;
+           cursor: pointer;
+           appearance: none;
+           -webkit-appearance: none;
+           transition: var(--transition);
+       }
+       .select-input:focus {
+           border-color: var(--primary);
+           box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.15);
+       }
+       .select-group::after {
+           content: "";
+           position: absolute;
+           right: 14px;
+           top: 50%;
+           transform: translateY(-50%);
+           width: 0;
+           height: 0;
+           border-left: 5px solid transparent;
+           border-right: 5px solid transparent;
+           border-top: 5px solid var(--text-muted);
+           pointer-events: none;
+       }
+       textarea.form-control {
+           resize: vertical;
+           min-height: 120px;
+       }
+       .error-message {
+           color: #EF4444;
+           font-size: 12px;
+           margin-top: 6px;
+           display: none;
+           align-items: center;
+           gap: 4px;
+       }
+       .error-message svg {
+           width: 14px;
+           height: 14px;
+       }
+       .form-actions {
+           display: flex;
+           gap: 12px;
+           justify-content: flex-end;
+           margin-top: 32px;
+       }
+       /* トースト通知 */
+       .toast {
+           position: fixed;
+           bottom: 24px;
+           right: 24px;
+           background: var(--white);
+           border-left: 4px solid var(--primary);
+           box-shadow: var(--shadow-lg);
+           border-radius: 8px;
+           padding: 16px 20px;
+           display: flex;
+           align-items: center;
+           gap: 12px;
+           transform: translateY(100px);
+           opacity: 0;
+           transition: var(--transition);
+           z-index: 200;
+       }
+       .toast.active {
+           transform: translateY(0);
+           opacity: 1;
+       }
+       .toast-icon {
+           color: var(--primary);
+           display: flex;
+           align-items: center;
+       }
+       .toast-icon svg {
+           width: 20px;
+           height: 20px;
+       }
+       .toast-msg {
+           font-size: 14px;
+           font-weight: 500;
+       }
+       .navigation-hint {
+           position: absolute;
+           top: 20px;
+           left: 20px;
+           z-index: 50;
+       }
+       /* モバイル対応 */
+       @media (max-width: 600px) {
+           .app-container {
+               padding: 20px;
+               border-radius: 16px;
+           }
+           .form-actions {
+               flex-direction: column;
+               gap: 12px;
+           }
+           .btn {
+               width: 100%;
+           }
+       }

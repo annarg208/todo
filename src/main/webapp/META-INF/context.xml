@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Context displayName="Todo App" path="/DynamicWebProject" docBase="DynamicWebProject"
+    reloadable="true" crossContext="true">
+    <Resource name="jdbc/mariadb"
+        auth="Container"
+        type="javax.sql.DataSource"
+        username="root"
+        password="root"
+        driverClassName="org.mariadb.jdbc.Driver"
+        url="jdbc:mariadb://localhost:3306/DynamicWebProject?useUnicode=true&amp;characterEncoding=utf8"
+        maxActive="4"
+        maxIdle="10"
+        maxWait="5000"
+        validationQuery="SELECT count(*) FROM todos" />
+</Context>
