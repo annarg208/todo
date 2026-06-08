@@ -17,3 +17,4 @@ target/
 固有
 .DS_Store
 Thumbs.db
+/bin/
